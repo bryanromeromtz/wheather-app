@@ -3,9 +3,18 @@ import WeatherInfo from "./components/WeatherInfo";
 import WeatherForm from "./components/WeatherForm";
 
 import { WEATHER_API_KEY } from './keys';
-import { fetchWrapper } from "workbox-core/_private";
 
 class App extends Component {
+
+  state = {
+    temperature: "",
+    description: "",
+    humidity: "",
+    wind_speed: "",
+    city: "",
+    country: "",
+    error: null
+  }
 
   getWeather = async e => {
     e.preventDefault()
@@ -16,9 +25,20 @@ class App extends Component {
     const API_URL = `https://api.openweathermap.org/data/2.5/weather?q=${cityValue},${countryValue}&appid=${WEATHER_API_KEY}&units=metric`;
     const response = await fetch(API_URL);
     const data = await response.json();
-    console.log(data)
+    console.log(data.wind.speed)
 
+    this.setState({
+      temperature: data.main.temp,
+      description: data.weather[0].description,
+      humidity: data.main.humidity,
+      wind_speed: data.wind.speed,
+      city: data.name,
+      country: data.sys.country,
+      error: null
+    }, () => {
+      console.log(this.state);
 
+    })
   }
   render() {
     return (
@@ -26,7 +46,7 @@ class App extends Component {
         <div className="row">
           <div className="col-md-6 mx-auto"></div>
           <WeatherForm getWeather={this.getWeather} />
-          <WeatherInfo />
+          <WeatherInfo {...this.state} />
         </div>
       </div>
     );
