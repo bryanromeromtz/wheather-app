@@ -2,6 +2,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: #f9a;
+  font-family: 'Varela Round', sans-serif;
 }
 
 .alert {
@@ -25,10 +26,41 @@ body {
   background-color: peachpuff;
 }
 
+.row {
+  margin-top: -50px;
+}
+
+.container-no-request {
+  flex-direction: row;
+  align-items: center;
+}
+
+.search {
+  color: grey;
+  font-size: 40px;
+  align-items: center;
+}
+
+.no-request {
+  font-size: 35px;
+  font-weight: 800;
+  color: grey;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
 p {
   color: slateblue;
   font-size: 20px;
   font-weight: 600;
+}
+
+@media screen and (max-width: 771px) {
+  .row {
+    margin-top: 30px;
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -46,12 +78,25 @@ p {
 
 @media screen and (max-width: 770px) {
   .rainbow-text {
+    font-family: 'Varela Round', sans-serif;
     font-weight: 700;
     font-size: 2.5em;
     width: 5em;
     line-height: 0.9em;
     margin-left: -15px;
     height: auto;
+  }
+  @media screen and (max-width: 365px) {
+    .container-no-request {
+      align-items: center;
+    }
+    .no-request {
+      font-size: 25px;
+      margin-top: -5px;
+    }
+    p {
+      font-size: 15px;
+    }
   }
   .container-cloud-sun {
     display: flex;
@@ -61,13 +106,13 @@ p {
 }
 
 h1 {
-  font-family: "Work Sans", sans-serif;
   font-weight: 800;
   font-size: 5em;
   width: 5em;
   line-height: 0.9em;
   margin-left: auto;
   margin-right: auto;
+  height: 2.9em;
 }
 
 .rainbow-text {

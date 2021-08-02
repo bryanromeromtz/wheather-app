@@ -13,14 +13,29 @@ export default function WeatherInfo(props) {
           </div> : null
       }
       {
-        props.temperature && props.city && props.country && props.humidity ? (< div className="info card card-body" >
-          <p>Location: {props.city}, {props.country}</p>
-          <p>Temperature: {props.temperature} °C, {props.description}</p>
-          <p>Humidity: {props.humidity}</p>
-          <p>Wind Speed: {props.wind_speed}</p>
-        </div >) :
-          <div className="card card-body">
-            <p>No Request Yet</p>
+        props.temperature ?
+          <div className="card card-body mt-2 animated fadeInUp" >
+            {
+              props.city && props.country &&
+              <p><i className="fas fa-location-arrow"></i> Location: {props.city}, {props.country}</p>
+            }
+            {
+              props.temperature &&
+              <p><i className="fas fa-temperature-low"></i> Temperature: {props.temperature} °C, {props.description}</p>
+            }
+            {
+              props.humidity &&
+              <p><i className="fas fa-water"></i> Humidity: {props.humidity}</p>
+            }
+            {
+              props.wind_speed &&
+              <p><i className="fas fa-wind"></i>  Wind Speed: {props.wind_speed}</p>
+            }
+          </div>
+          :
+          <div className="container-no-request card card-body mt-2">
+            <i class="search fas fa-search-location"></i>
+            <p className="no-request">No Request Yet</p>
           </div>
       }
     </div>
