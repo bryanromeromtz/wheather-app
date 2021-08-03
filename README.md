@@ -1,3 +1,3 @@
 # sample of the finished application
 
-![](images/weatherApp.png)
+![](src/images/weatherApp.png)
